@@ -1,0 +1,93 @@
+/* 전반적인 스타일 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* 상단 영역 */
+.top-area {
+  height: 50px;
+  background-color: #03c75a;
+  /* 비워둠 */
+}
+
+/* 제목 및 작성자, 날짜 영역 */
+.title-area {
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+.author {
+  font-size: 14px;
+  color: #888;
+  margin-right: 10px;
+}
+.date {
+  font-size: 14px;
+  color: #888;
+  float: right;
+}
+
+/* 내용 영역 */
+.content-area {
+  padding: 20px;
+}
+
+/* 좋아요, 조회수, 댓글 수 영역 */
+.info-area {
+  padding: 10px 20px;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  color: #888;
+  font-size: 14px;
+}
+
+/* 댓글 입력 영역 */
+.comment-input-area {
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+}
+.comment-input {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+.comment-submit-btn {
+  width: 20%;
+  padding: 10px;
+  background-color: #d0ffe0;
+  color: #000; /* 글자 색상 추가 */
+  font-weight: bold; /* 글자 두께 추가 */
+  border: none;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* 댓글 및 대댓글 영역 */
+.comment-area {
+  padding: 20px;
+}
+.comment {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f0fff0;
+  border-radius: 4px;
+}
+.comment.reply {
+  background-color: #e0ffe0;
+}
+.comment-author {
+  font-weight: bold;
+  margin-right: 10px;
+}
+.comment-content {
+  margin-top: 5px;
+}
