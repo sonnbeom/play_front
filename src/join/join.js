@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './join.css';
-// import './JoinForm.css';
+
 
 const Join = () => {
   const [name, setName] = useState('');
@@ -10,8 +11,29 @@ const Join = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [termsChecked, setTermsChecked] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if(password !== confirmPassword){
+      alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+      return;
+    }
+    try {
+      const response = await axios.post('http://localhost:8080/join', {
+        name,
+        nickname,
+        email,
+        password
+      });
+    
+      if (response.status === 200) {
+        console.log('회원가입 성공');
+      } else {
+        console.error('회원가입 실패:', response.status);
+      }
+    } catch (error) {
+      console.error('요청 실패:', error);
+    }
+    
     // 여기서 회원가입 로직을 구현할 수 있습니다.;
   };
   const onSubmit = () => {

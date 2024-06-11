@@ -1,15 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router -dom';
-import Join from './join/join';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Join from './join/Join.js';
+import { Link } from 'react-router-dom';
 
 function App() {
   return (
+  
     <Router>
-      <Switch>
-        <Route path = "/join" component = {Join} />
-        <Route></Route>
-        <Route></Route>
-      </Switch>
+      <Routes>
+        <Route path='/join' element={<Join />} />
+      </Routes>
+
     </Router>
   );
 }
