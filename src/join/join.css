@@ -52,3 +52,21 @@ button:hover {
 .terms-and-conditions a:hover {
   text-decoration: underline;
 }
+/* .profile-input {
+  visibility: hidden;
+}
+
+.profile-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.profile-button:hover {
+  background-color: #45a049;
+} */
