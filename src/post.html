@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카카오 API를 활용한 글 작성</title>
+  <style>
+    body {
+      font-family: 'Nanum Gothic', Arial, sans-serif;
+      background-color: #f5f6f7;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 3px;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    #search-input {
+      width: 60%;
+      padding: 10px 16px;
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      font-size: 14px;
+      color: #333;
+    }
+    #search-button {
+      background-color: #03c75a;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+    #search-button:hover {
+      background-color: #00a741;
+    }
+    #result-container {
+      margin-top: 20px;
+    }
+    .result-item {
+      border: 1px solid #d5d5d5;
+      padding: 20px;
+      border-radius: 3px;
+      margin-bottom: 20px;
+    }
+    .result-item h3 {
+      margin-top: 0;
+      color: #333;
+    }
+    .result-item p {
+      margin-bottom: 10px;
+      color: #666;
+    }
+    #blog-title {
+      width: 100%;
+      padding: 10px 16px;
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    #blog-content {
+      width: 100%;
+      height: 300px;
+      padding: 10px 16px;
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      font-size: 16px;
+      color: #333;
+      resize: vertical;
+    }
+    #publish-button {
+      background-color: #03c75a;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 14px;
+      display: block;
+      margin: 20px auto 0;
+    }
+    #publish-button:hover {
+      background-color: #00a741;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>카카오 API를 활용한 글 작성</h1>
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="검색어 입력">
+      <button id="search-button">검색</button>
+    </div>
+    <div id="result-container"></div>
+    <input type="text" id="blog-title" placeholder="제목을 입력하세요">
+    <textarea id="blog-content" placeholder="내용을 입력하세요"></textarea>
+    <button id="publish-button">게시하기</button>
+  </div>
+
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script>
+    // 카카오 API 초기화
+    Kakao.init('YOUR_KAKAO_API_KEY');
+
+    // 검색 버튼 클릭 이벤트
+    document.getElementById('search-button').addEventListener('click', function() {
+      var searchQuery = document.getElementById('search-input').value;
+      searchPlaces(searchQuery);
+    });
+
+    // 장소 검색 함수
+    function searchPlaces(query) {
+      Kakao.Maps.services.keywordSearch(query, function(status, data) {
+        if (status === Kakao.Maps.services.Status.OK) {
+          var resultContainer = document.getElementById('result-container');
+          resultContainer.innerHTML = '';
+
+          data.documents.forEach(function(place) {
+            var resultItem = document.createElement('div');
+            resultItem.classList.add('result-item');
+
+            var title = document.createElement('h3');
+            title.textContent = place.place_name;
+
+            var address = document.createElement('p');
+            address.textContent = place.address_name;
+
+            var category = document.createElement('p');
+            category.textContent = place.category_name;
+
+            resultItem.appendChild(title);
+            resultItem.appendChild(address);
+            resultItem.appendChild(category);
+            resultContainer.appendChild(resultItem);
+          });
+        } else {
+          alert('장소 검색에 실패했습니다.');
+        }
+      });
+    }
+
+    // 게시하기 버튼 클릭 이벤트
+    document.getElementById('publish-button').addEventListener('click', function() {
+      var blogTitle = document.getElementById('blog-title').value;
+      var blogContent = document.getElementById('blog-content').value;
+      // 여기에 실제 게시 로직을 추가하세요
+      alert('게시되었습니다!');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카카오 API를 활용한 글 작성</title>
+  <link rel="stylesheet" href="post.css">
+</head>
+<body>
+  <div class="container">
+    <h1>카카오 API를 활용한 글 작성</h1>
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="검색어 입력">
+      <button id="search-button">검색</button>
+    </div>
+    <div id="result-container"></div>
+    <input type="text" id="blog-title" placeholder="제목을 입력하세요">
+    <textarea id="blog-content" placeholder="내용을 입력하세요"></textarea>
+    <button id="publish-button">게시하기</button>
+  </div>
+
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
