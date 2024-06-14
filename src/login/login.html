@@ -8,17 +8,24 @@
 </head>
 <body>
   <div class="login-container">
-    <h1>로그인</h1>
-    <form>
-      <input type="text" placeholder="아이디" required>
-      <input type="password" placeholder="비밀번호" required>
-      <button type="submit">로그인</button>
-    </form>
-    <div class="social-login">
-      <a href="#">네이버 로그인</a>
-      <a href="#">구글 로그인</a>
-      <a href="#">카카오 로그인</a>
+    <h2 class="title">로그인</h2>
+    <div class="form-group">
+      <label for="email">이메일</label>
+      <input type="email" id="email" placeholder="이메일을 입력하세요" required>
+    </div>
+    <div class="form-group">
+      <label for="password">비밀번호</label>
+      <input type="password" id="password" placeholder="비밀번호를 입력하세요" required>
+    </div>
+    <button class="login-btn">로그인</button>
+    <div class="signup-container">
+      <a href="#" class="signup-link">회원가입</a>
+      <div class="social-login">
+        <img src="google.png" alt="Google" class="social-icon">
+        <img src="kakao.png" alt="Kakao" class="social-icon">
+      </div>
     </div>
   </div>
+  
 </body>
 </html>
