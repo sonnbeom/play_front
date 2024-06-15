@@ -24,10 +24,12 @@ const LoginPage = () => {
         password
         } 
       );
-      const accessToken = response.headers.Authorization.split(' ')[1];
+
+      const accessToken = response.headers.authorization.split(' ')[1];
       localStorage.setItem('accessToken', accessToken);
       
-      navigate('http://localhost:3000');
+      navigate('');
+      console.log("로그인 완료")
     }
     catch(e){
       console.log("로그인 에러", e)
